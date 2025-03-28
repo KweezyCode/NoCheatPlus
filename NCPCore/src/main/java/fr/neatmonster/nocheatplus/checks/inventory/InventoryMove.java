@@ -88,7 +88,7 @@ public class InventoryMove extends Check {
         final PlayerMoveData pastMove3 = mData.playerMoves.getThirdPastMove();
         final boolean fullLiquidMove = thisMove.from.inLiquid && thisMove.to.inLiquid;
         final long currentEvent = System.currentTimeMillis();
-        final boolean isCollidingWithEntities = CollisionUtil.isCollidingWithEntities(player, true) && ServerVersion.compareMinecraftVersion("1.9") >= 0;
+        final boolean isCollidingWithEntities = ServerVersion.compareMinecraftVersion("1.9") >= 0 && CollisionUtil.isCollidingWithEntities(player, true);
         final double minHDistance = thisMove.hAllowedDistanceBase / Math.max(1.1, cc.invMoveHdistDivisor); // Just in case admins input a too low value.
         final boolean creative = player.getGameMode() == GameMode.CREATIVE && ((type == SlotType.QUICKBAR) || cc.invMoveDisableCreative);
         final boolean isMerchant = (player.getOpenInventory().getTopInventory().getType() == InventoryType.MERCHANT); 

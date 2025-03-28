@@ -18,6 +18,7 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.UUID;
 
+import fr.neatmonster.nocheatplus.utilities.Compability152;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
@@ -107,7 +108,7 @@ public class BanCommand extends BaseCommand {
         // Complete Players
         if (args.length == 2) {
             List<String> players = Lists.newArrayList();
-            for (Player player : Bukkit.getOnlinePlayers()) {
+            for (Player player : Compability152.getOnlinePlayersUsingReflection()) {
                 players.add(player.getName());
             }
             return players;

@@ -18,6 +18,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
 
+import fr.neatmonster.nocheatplus.utilities.Compability152;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -102,18 +103,7 @@ public class BridgeMisc {
      * @return
      */
     public static Player[] getOnlinePlayers() {
-        try {
-            Collection<? extends Player> players = Bukkit.getOnlinePlayers();
-            return players.isEmpty() ? new Player[0] : players.toArray(new Player[players.size()]);
-        }
-        catch (NoSuchMethodError e) {}
-        if (Bukkit_getOnlinePlayers != null) {
-            Object obj = ReflectionUtil.invokeMethodNoArgs(Bukkit_getOnlinePlayers, null);
-            if (obj != null && (obj instanceof Player[])) {
-                return (Player[]) obj;
-            }
-        }
-        return new Player[0];
+        return Compability152.getOnlinePlayersUsingReflection();
     }
 
     /**

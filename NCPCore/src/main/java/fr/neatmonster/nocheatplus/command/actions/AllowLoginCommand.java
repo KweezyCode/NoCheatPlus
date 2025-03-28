@@ -17,6 +17,7 @@ package fr.neatmonster.nocheatplus.command.actions;
 import com.google.common.collect.Lists;
 import java.util.List;
 
+import fr.neatmonster.nocheatplus.utilities.Compability152;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -63,7 +64,7 @@ public class AllowLoginCommand extends BaseCommand {
 		// Complete Players
 		if (args.length == 2) {
 			List<String> players = Lists.newArrayList();
-			for (Player player : Bukkit.getOnlinePlayers()) {
+			for (Player player : Compability152.getOnlinePlayersUsingReflection()) {
 				players.add(player.getName());
 			}
 			return players;

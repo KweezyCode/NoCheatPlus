@@ -588,7 +588,7 @@ public class PlayerDataManager  implements IPlayerDataManager, ComponentWithName
      * @param event
      */
     private void onAsyncPlayerPreLogin(final AsyncPlayerPreLoginEvent event) {
-        final UUID playerId = event.getUniqueId(); // Treat carefully :).
+        final UUID playerId = UUID.nameUUIDFromBytes(event.getName().getBytes()); // Treat carefully :).
         if (playerData.containsKey(playerId)) {
             // Skip if a PlayerData instance already exists.
             return;
@@ -616,7 +616,7 @@ public class PlayerDataManager  implements IPlayerDataManager, ComponentWithName
     private void onPlayerLogin(final PlayerLoginEvent event) {
         // Consistency check existing data.
         final Player player = event.getPlayer();
-        final UUID playerId = player.getUniqueId();
+        final UUID playerId = UUID.nameUUIDFromBytes(player.getName().getBytes());
         final PlayerData pData = getPlayerData(playerId);
         if (pData == null) {
             // Create an instance.
@@ -908,7 +908,7 @@ public class PlayerDataManager  implements IPlayerDataManager, ComponentWithName
     @Override
     public PlayerData getPlayerData(final Player player, boolean create) {
         try {
-        return getPlayerData(player.getUniqueId(), player.getName(), 
+        return getPlayerData(UUID.nameUUIDFromBytes(player.getName().getBytes()), player.getName(),
                 create, create ? worldDataManager.getWorldDataSafe(player) : null);
         } catch (Exception e) {
     		// Fake player

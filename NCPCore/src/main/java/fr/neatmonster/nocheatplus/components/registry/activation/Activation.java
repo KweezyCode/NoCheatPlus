@@ -156,6 +156,9 @@ public class Activation implements IDescriptiveActivation {
         conditions.add(new IActivation() {
             @Override
             public boolean isAvailable() {
+                if (pluginName.equals("ProtocolLib")) {
+                    return false;
+                }
                 return Bukkit.getServer().getPluginManager().getPlugin(pluginName) != null;
             }
         });

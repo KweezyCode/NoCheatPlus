@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import fr.neatmonster.nocheatplus.utilities.Compability152;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -113,7 +114,7 @@ public class InfoCommand extends BaseCommand {
         // Complete Players
         if (args.length == 2) {
             List<String> players = Lists.newArrayList();
-            for (Player player : Bukkit.getOnlinePlayers()) {
+            for (Player player : Compability152.getOnlinePlayersUsingReflection()) {
                 players.add(player.getName());
             }
             return players;
