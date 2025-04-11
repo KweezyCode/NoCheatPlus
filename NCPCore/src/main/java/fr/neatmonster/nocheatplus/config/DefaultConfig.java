@@ -151,7 +151,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.BLOCKINTERACT_ACTIVE, "default", 1144);
         // Direction
         set(ConfPaths.BLOCKINTERACT_DIRECTION_CHECK, "default", 785);
-        set(ConfPaths.BLOCKINTERACT_DIRECTION_ACTIONS, "cancel vl>15 cancel log:bdirection:4:8:i vl>200 cancel log:bdirection:1:5:if cmdc:kickillegalblockinteract:1:5", 1154);
+        set(ConfPaths.BLOCKINTERACT_DIRECTION_ACTIONS, "vl>15 cancel log:bdirection:4:8:i vl>200 cancel log:bdirection:1:5:if cmdc:kickillegalblockinteract:1:5", 1154);
         // Reach
         set(ConfPaths.BLOCKINTERACT_REACH_CHECK, "default", 785);
         set(ConfPaths.BLOCKINTERACT_REACH_ACTIONS, "cancel log:breach:5:6:i", 1154);
