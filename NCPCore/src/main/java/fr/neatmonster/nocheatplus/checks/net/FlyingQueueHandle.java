@@ -92,6 +92,10 @@ public class FlyingQueueHandle implements IHandle<DataPacketFlying[]> {
      *             If the index is out of range.
      */
     public DataPacketFlying getIfFetched(final int index) {
+        // TODO: 1.5.2 Fix
+        if (index < 0) {
+            return null;
+        }
         return queue == null ? null : queue[index];
     }
 
