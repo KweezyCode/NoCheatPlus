@@ -1444,7 +1444,9 @@ public class SurvivalFly extends Check {
             if (attrMod == Double.MAX_VALUE) {
                 final double speedAmplifier = mcAccess.getHandle().getFasterMovementAmplifier(player);
                 if (!Double.isInfinite(speedAmplifier) && useBaseModifiersSprint) {
-                    hAllowedDistance *= 1.0D + 0.2D * speedAmplifier; 
+                    // TODO: Pseudo-fix for 1.5.2, please recalculate. 1.0D -> 1.15D
+                    hAllowedDistance *= 1.15D + 0.2D * speedAmplifier;
+                    System.out.println(hAllowedDistance);
                 }
             }
             else {
