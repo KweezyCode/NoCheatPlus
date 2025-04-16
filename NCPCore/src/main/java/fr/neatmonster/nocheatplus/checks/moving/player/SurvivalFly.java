@@ -1446,7 +1446,6 @@ public class SurvivalFly extends Check {
                 if (!Double.isInfinite(speedAmplifier) && useBaseModifiersSprint) {
                     // TODO: Pseudo-fix for 1.5.2, please recalculate. 1.0D -> 1.15D
                     hAllowedDistance *= 1.15D + 0.2D * speedAmplifier;
-                    System.out.println(hAllowedDistance);
                 }
             }
             else {
